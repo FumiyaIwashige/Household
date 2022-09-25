@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/top', 'RegisterController@index');
-
+Route::get('/top', 'ShowController@index');
+Route::get('/', 'ShowController@index');
