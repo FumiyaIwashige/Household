@@ -13,3 +13,7 @@
 
 Route::get('/top', 'ShowController@index');
 Route::get('/', 'ShowController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
