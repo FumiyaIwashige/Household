@@ -13,6 +13,7 @@
 
 Route::get('/top', 'ShowController@index');
 Route::get('/', 'ShowController@index');
+Route::get('/spendings/register', 'RegisterController@register');
 
 Auth::routes();
 
