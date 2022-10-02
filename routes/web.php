@@ -15,6 +15,8 @@ Route::get('/top', 'ShowController@index');
 Route::get('/', 'ShowController@index');
 Route::get('/spendings/register', 'RegisterController@register');
 
+Route::get('/spendings/top', 'GetDataController@getdata');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
