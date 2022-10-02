@@ -10,7 +10,6 @@ class ShowController extends Controller
 {
     public function index(Category $category, Spending $spending)
     {
-        return view('index')->with(['categories' => $category->get()]);
-        return view('index')->with(['spendings' => $spending->get()]);
+        return view('index')->with(['spendings' => $spending->get(), 'categories' => $category->get()]);
     }
 }
