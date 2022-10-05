@@ -13,7 +13,9 @@
 
 Route::get('/top', 'ShowController@index');
 Route::get('/', 'ShowController@index');
-Route::get('/spendings/register', 'RegisterController@register');
+Route::post('/spendings/top', 'RegisterController@register');
+
+Route::get('/spendings/register', 'RegisterController@view');
 
 Route::get('/spendings/top', 'GetDataController@getdata');
 
