@@ -8,9 +8,15 @@ use App\Category;
 
 class RegisterController extends Controller
 {
-    public function register(Spending $spending, Category $category)
+    public function view()
     {
-        return view('spendings/register'); 
-        return view('spendings/register')->with(['spendings' => $spending->get(), 'categories' => $category->get()]);
+        return view('spendings/register');
+    }
+    
+    public function register(Request $request, Spending $spending)
+    {
+        $input = $request['spending'];
+        $spending->fill($input)->save();
+        return redirect('/spendings/top');
     }
 }

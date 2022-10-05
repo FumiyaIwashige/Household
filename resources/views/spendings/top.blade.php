@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>家計簿</title>
+        <title>HouseholdAccount</title>
     </head>
     <?php
         $number = 9;
