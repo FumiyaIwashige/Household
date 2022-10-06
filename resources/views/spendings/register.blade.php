@@ -15,13 +15,14 @@
                 @csrf
                 <h2>購入品</h2>
                 <div class='name'>
-                    <input type="text" name="spending[name]" placeholder="カルピス"/>
+                    <p>商品名：<input type="text" name="spending[name]" placeholder="カルピス" value="{{ old('spending.name') }}"/></p>
                 </div>
                 <div class='cost'>
-                    <input type="number" name="spending[cost]" placeholder=1000>
+                    <p>値段：<input type="number" name="spending[cost]" placeholder=1000 value="{{ old('spending.cost') }}"></p>
+                    <p class="title__error" style="color:red">{{ $errors->first('spending.cost') }}</p>
                 </div>
                 <div class='category'>
-                     <select name="spending[category_id]">
+                    <p>項目：<select name="spending[category_id]" value="{{ old('spending.category_id') }}">
                         <option value="">項目を選択して下さい</option>
                         <option value=1>食費</option>
                         <option value=2>日用品</option>
@@ -32,12 +33,13 @@
                         <option value=7>光熱費</option>
                         <option value=8>通信費</option>
                         <option value=9>その他</option>
-                    </select>
+                    </select></p>
                 </div>
+                <p class="title__error" style="color:red">{{ $errors->first('spending.category_id') }}</p>
                 <input type="submit" value="登録"/>
                 
             </form>
-            <div class="back"><a href="/spendings/top">戻る</a></div>
+            <div class="back"><a href="/spendings/top">トップに戻る</a></div>
         </body>
     @endsection
 </html>
