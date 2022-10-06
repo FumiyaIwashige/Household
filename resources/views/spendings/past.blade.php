@@ -17,14 +17,7 @@
     
     @section('content')
         <body>
-            [<a href='/spendings/register'>記録</a>]
-            <p>過去の家計簿<form action='/spendings/past' method='GET'>
-                <input type='date' name='from' placeholder='from date'>
-                    <span>~</span>
-                <input type='date' name='until' placeholder='until_date'>
-                <input type="submit" value="表示"/>
-            </form></p>
-            <h1>今月の出費</h1>
+            <h1>{{ $date['from'] }}から{{ $date['until'] }}の出費</h1>
             <h3>食費：{{ $item_array[0] }}</h3>
             <h3>日用品：{{ $item_array[1] }}</h3>
             <h3>交通費：{{ $item_array[2] }}</h3>
@@ -36,4 +29,6 @@
             <h3>その他：{{ $item_array[8] }}</h3>
         </body>
     @endsection
+    <div class="back"><a href="/spendings/top">トップに戻る</a></div>
+     <div class="edit"><a href="/spendings/edit">編集</a></div>
 </html>

@@ -18,6 +18,7 @@ Route::post('/spendings/top', 'RegisterController@register');
 Route::get('/spendings/register', 'RegisterController@view');
 
 Route::get('/spendings/top', 'GetDataController@getdata');
+Route::get('/spendings/past', 'GetDataController@pastdata');
 
 Auth::routes();
 
