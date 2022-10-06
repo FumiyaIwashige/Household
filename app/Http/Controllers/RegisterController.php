@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Http\Requests\SpendingRequest;
 use App\Spending;
 use App\Category;
 
@@ -13,10 +12,10 @@ class RegisterController extends Controller
         return view('spendings/register');
     }
     
-    public function register(Request $request, Spending $spending)
+    public function register(SpendingRequest $request, Spending $spending)
     {
         $input = $request['spending'];
         $spending->fill($input)->save();
-        return redirect('/spendings/top');
+        return redirect('/spendings/register');
     }
 }
