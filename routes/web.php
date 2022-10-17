@@ -13,12 +13,21 @@
 
 Route::get('/top', 'ShowController@index');
 Route::get('/', 'ShowController@index');
+
 Route::post('/spendings/top', 'RegisterController@register');
+Route::get('/spendings/top', 'GetDataController@getdata');
 
 Route::get('/spendings/register', 'RegisterController@view');
 
-Route::get('/spendings/top', 'GetDataController@getdata');
 Route::get('/spendings/past', 'GetDataController@pastdata');
+
+/*
+Route::get('/spendings/{item}', 'GetDataController@item');
+*/
+Route::get('/spendings/edit', 'GetDataController@edit_data');
+Route::get('/spendings/edit/{spending}', 'ShowController@show');
+Route::get('/spendings/edit/{spending}', 'ShowController@show_edit');
+Route::put('/spendings/{spending}', 'RegisterController@update');
 
 Auth::routes();
 
