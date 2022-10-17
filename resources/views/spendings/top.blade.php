@@ -24,6 +24,20 @@
                 <input type='date' name='until' placeholder='until_date'>
                 <input type="submit" value="表示"/>
             </form></p>
+            <form method="GET" action="">
+            <select name="category_id" onchange="submit(this.form)">
+                <option value="">項目を選択して下さい</option>
+                <option value=1>食費</option>
+                <option value=2>日用品</option>
+                <option value=3>交通費</option>
+                <option value=4>交際費</option>
+                <option value=5>娯楽</option>
+                <option value=6>家賃</option>
+                <option value=7>光熱費</option>
+                <option value=8>通信費</option>
+                <option value=9>その他</option>
+            </select>
+            </form>
             <h1>今月の出費</h1>
             <h3>食費：{{ $item_array[0] }}</h3>
             <h3>日用品：{{ $item_array[1] }}</h3>

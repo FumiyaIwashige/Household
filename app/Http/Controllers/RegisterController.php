@@ -18,4 +18,12 @@ class RegisterController extends Controller
         $spending->fill($input)->save();
         return redirect('/spendings/register');
     }
+    
+    public function update(PostRequest $request, Spending $spending)
+    {
+        $input_spending = $request['spending'];
+        $spending->fill($input_spending)->save();
+        
+        return redirect('/spendings/edit');
+    }
 }

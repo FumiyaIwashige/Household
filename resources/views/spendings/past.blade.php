@@ -11,7 +11,6 @@
         for ($i = 0; $i < $number; $i++) {
             $item_array[] = $spendings->where('category_id',$i+1)->sum('cost');
         }
-        
     ?>
     @extends('layouts.app')
     
@@ -27,8 +26,13 @@
             <h3>光熱費：{{ $item_array[6] }}</h3>
             <h3>通信費：{{ $item_array[7] }}</h3>
             <h3>その他：{{ $item_array[8] }}</h3>
+            <form action='/spendings/edit' method="GET">
+                <input type="hidden" name='from' value={{ $date['from'] }}>
+                <input type="hidden" name='until' value={{ $date['until'] }}>
+                <button type="submit">編集</button>
+            </form>
+            <div class="back"><a href="/spendings/top">トップに戻る</a></div>
+            <div class="edit"><a href="/spendings/edit">編集</a></div>
         </body>
     @endsection
-    <div class="back"><a href="/spendings/top">トップに戻る</a></div>
-     <div class="edit"><a href="/spendings/edit">編集</a></div>
 </html>

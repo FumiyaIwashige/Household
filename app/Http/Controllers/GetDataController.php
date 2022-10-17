@@ -31,4 +31,26 @@ class GetDataController extends Controller
                 
         return view('spendings/past')->with(['spendings' => $data, 'date' => $request]);
     }
+    
+    public function edit_data(Request $request, Spending $spending)
+    {
+        $data = DB::table('spendings')
+                ->whereBetween('updated_at', [$request['from'], $request['until']])
+                ->get();
+        /*
+        dd($request["from"]);
+        */
+        
+        return view('spendings/edit')->with(['spendings' => $data, 'date' => $request]);
+    }
+    
+    public function item(Request $request, Spending $spending)
+    {
+        $data = DB::table('spendings')
+                ->where('category_id', '=', $request)
+                ->get();
+                
+        return view('/spendings/category')->with(['data' => $data, 'category_id' => $request, 'spendings' => $spending]);
+    }
+    
 }
