@@ -38,9 +38,13 @@
                     -->
                     <th>
                         <form action='/spendings/edit/{{ $spending->id }}' method='GET'>
+                        <input type="hidden" name='from' value={{ $date['from'] }}>
+                        <input type="hidden" name='until' value={{ $date['until'] }}>
+                        <!--
                         <input type='hidden' name='name' value={{ $spending->name }}>
                         <input type='hidden' name='cost' value={{ $spending->cost }}>
                         <input type='hidden' name='category_id' value={{ $spending->category_id }}>
+                        -->
                         <button type="submit">編集</button>
                     </form>
                     </th>

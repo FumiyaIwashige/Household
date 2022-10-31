@@ -27,7 +27,7 @@ Route::get('/spendings/{item}', 'GetDataController@item');
 Route::get('/spendings/edit', 'GetDataController@edit_data');
 Route::get('/spendings/edit/{spending}', 'ShowController@show');
 Route::get('/spendings/edit/{spending}', 'ShowController@show_edit');
-Route::put('/spendings/{spending}', 'RegisterController@update');
+Route::put('/spendings/edit/{spending}', 'ShowController@update');
 
 Auth::routes();
 

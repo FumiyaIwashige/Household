@@ -13,17 +13,23 @@
             <form action='/spendings/edit/{{ $spending_inf->id }}', method='POST'>
                 @csrf
                 @method('PUT')
+                <!--
                 <input name="_method" type="hidden" value="PUT">
+                -->
+                <input type='hidden' name="date[from]" value="{{ $date['from'] }}"> 
+                <input type='hidden' name="date[until]" value="{{ $date['until'] }}"> 
                 <h2>購入品</h2>
                 <div class='name'>
-                    <p>商品名：<input type="text" name="spending[name]" value="{{ old('spending.name') }}"/></p>
+                    <p>商品名：<input type="text" name="spending[name]" value="{{ $spending_inf->name }}" /></p>
                 </div>
                 <div class='cost'>
-                    <p>値段：<input type="number" name="spending[cost]" value="{{ old('spending.cost') }}"></p>
+                    <p>値段：<input type="number" name="spending[cost]" value="{{ $spending_inf->cost }}" ></p>
+                    <!--
                     <p class="title__error" style="color:red">{{ $errors->first('spending.cost') }}</p>
+                    -->
                 </div>
                 <div class='category'>
-                    <p>項目：<select name="spending[category_id]" value="{{ old('spending.category_id') }}">
+                    <p>項目：<select name="spending[category_id]">
                         <option value="">項目を選択して下さい</option>
                         <option value=1>食費</option>
                         <option value=2>日用品</option>

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>HouseholdAccount</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <?php
         $number = 9;
@@ -48,6 +49,47 @@
             <h3>光熱費：{{ $item_array[6] }}</h3>
             <h3>通信費：{{ $item_array[7] }}</h3>
             <h3>その他：{{ $item_array[8] }}</h3>
+            
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+            <script>
+              const labels = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+              ];
+            
+              const data = {
+                labels: labels,
+                datasets: [{
+                  label: 'My First dataset',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+              };
+            
+              const config = {
+                type: 'line',
+                data: data,
+                options: {}
+              };
+            </script>
+            
+            <script>
+              const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+              );
+            </script>
+            
         </body>
     @endsection
 </html>
